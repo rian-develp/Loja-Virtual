@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Loja Virtual</string>
+    <string name="hint_email">E-mail</string>
+    <string name="content_desc_email">Por Favor Insira seu E-mail</string>
+    <string name="hint_password">Senha</string>
+    <string name="content_desc_password">Por favor insira sua senha</string>
+    <string name="hint_name">Nome</string>
 </resources>
