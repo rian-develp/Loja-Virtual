@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lojavirtual.R
+import com.example.lojavirtual.model.Recipes
 import com.squareup.picasso.Picasso
 
 class RecyclerAdapter(private val recipes: ArrayList<Recipes>): RecyclerView.Adapter<RecyclerAdapter.RecyclerAdapterViewHolder>() {
