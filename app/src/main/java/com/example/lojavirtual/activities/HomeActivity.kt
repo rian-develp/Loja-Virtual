@@ -2,9 +2,7 @@ package com.example.lojavirtual.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.GridLayout
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.lojavirtual.adapter.RecyclerAdapter
 import com.example.lojavirtual.databinding.ActivityHomeBinding
 import com.example.lojavirtual.model.Recipes
@@ -12,8 +10,8 @@ import com.example.lojavirtual.model.Recipes
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var recyclerAdapter: RecyclerAdapter
-    private lateinit var recipesList: ArrayList<Recipes>
     private lateinit var binding: ActivityHomeBinding
+    private val recipesList: MutableList<Recipes> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,10 +19,11 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val recyclerView = binding.recyclerView
-        recyclerView.layoutManager = GridLayoutManager(this, 2, RecyclerView.VERTICAL, false)
-        recyclerAdapter= RecyclerAdapter(recipesList)
+        recyclerView.layoutManager = GridLayoutManager(this, 2)
+        recyclerAdapter = RecyclerAdapter(recipesList)
         recyclerView.adapter = recyclerAdapter
         setList()
+
     }
 
     private fun setList(){

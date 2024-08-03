@@ -1,17 +1,17 @@
 package com.example.lojavirtual.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lojavirtual.R
 import com.example.lojavirtual.model.Recipes
 import com.squareup.picasso.Picasso
 
-class RecyclerAdapter(private val recipes: ArrayList<Recipes>): RecyclerView.Adapter<RecyclerAdapter.RecyclerAdapterViewHolder>() {
+class RecyclerAdapter(private val recipes: MutableList<Recipes>): RecyclerView.Adapter<RecyclerAdapter.RecyclerAdapterViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerAdapterViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.recipes_item, parent, false)
@@ -23,8 +23,8 @@ class RecyclerAdapter(private val recipes: ArrayList<Recipes>): RecyclerView.Ada
     }
 
     override fun onBindViewHolder(holder: RecyclerAdapterViewHolder, position: Int) {
-        val recipeImgPicasso = Picasso.get().load(recipes[position].link)
-        holder.recipeImg.setImageResource(recipeImgPicasso)
+
+        Picasso.get().load(recipes[position].link).into(holder.recipeImg)
         holder.recipeName.text = recipes[position].name
         holder.recipePrice.text = recipes[position].price
     }
